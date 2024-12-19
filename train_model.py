@@ -12,7 +12,7 @@ train_data = pd.read_csv('train.csv',delimiter=';', header=0)
 test_data = pd.read_csv('test.csv',delimiter=';', header=0)
 referer_vectors = pd.read_csv('referer_vectors.csv',delimiter=';', header=0)
 geo_info = pd.read_csv('geo_info.csv',delimiter=';', header=0)
-agent_data = pd.read_csv('agent_data.csv',delimiter=';', header=0)
+agent_data = pd.read_csv('agent_data_train.csv',delimiter=';', header=0)
 print('Download success')
 
 train_data = train_data.dropna(subset=["user_agent"])
@@ -111,9 +111,9 @@ print(f"Best accuracy: {best_result['accuracy']:.4f}")
 
 # Запись результатов в файл
 print(results)
-f = open('result.txt','w')  # открытие в режиме записи
+f = open('results/result.txt', 'w')  # открытие в режиме записи
 f.write(json.dumps(results))
 f.close()
-f = open('best_result.txt','w')  # открытие в режиме записи
+f = open('results/best_result.txt', 'w')  # открытие в режиме записи
 f.write(json.dumps(best_result))
 f.close()
